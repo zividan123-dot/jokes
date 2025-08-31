@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>θετρ ιφιψϊ αγιηεϊ χψω</title>
+    <title>ΧΧ•Χ¤Χ΅ Χ™Χ¦Χ™Χ¨Χª Χ‘Χ“Χ™Χ—Χ•Χª Χ§Χ¨Χ©</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
@@ -63,59 +63,59 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
     <div class="form-container">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">θετρ αγιηεϊ χψω</h1>
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">ΧΧ•Χ¤Χ΅ Χ‘Χ“Χ™Χ—Χ•Χª Χ§Χ¨Χ©</h1>
         <p class="text-gray-500 text-center mb-8">
-            ξμΰε ΰϊ δτψθιν εδαγιηδ δχψω ωμλν ϊβις ιωψ μ-Webhook!
+            ΧΧΧΧ• ΧΧª Χ”Χ¤Χ¨ΧΧ™Χ Χ•Χ”Χ‘Χ“Χ™Χ—Χ” Χ”Χ§Χ¨Χ© Χ©ΧΧ›Χ ΧªΧ’Χ™ΧΆ Χ™Χ©Χ¨ Χ-Webhook!
         </p>
 
         <form id="jokeForm" action="https://hook.eu2.make.com/n1l103qshtres56kkc8slnip78vllun6" method="post">
             <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-semibold mb-2">ων</label>
-                <input type="text" id="name" name="name" placeholder="δων ωμλν" required class="input-field">
+                <label for="name" class="block text-gray-700 font-semibold mb-2">Χ©Χ</label>
+                <input type="text" id="name" name="name" placeholder="Χ”Χ©Χ Χ©ΧΧ›Χ" required class="input-field">
             </div>
 
             <div class="mb-4">
-                <label for="topic" class="block text-gray-700 font-semibold mb-2">πεωΰ δαγιηδ</label>
-                <input type="text" id="topic" name="topic" placeholder="μγεβξδ: ξηωαιν, ΰελμ, αςμι ηιιν" required class="input-field">
+                <label for="topic" class="block text-gray-700 font-semibold mb-2">Χ Χ•Χ©Χ Χ”Χ‘Χ“Χ™Χ—Χ”</label>
+                <input type="text" id="topic" name="topic" placeholder="ΧΧ“Χ•Χ’ΧΧ”: ΧΧ—Χ©Χ‘Χ™Χ, ΧΧ•Χ›Χ, Χ‘ΧΆΧΧ™ Χ—Χ™Χ™Χ" required class="input-field">
             </div>
 
             <div class="mb-6">
-                <label for="jokeSetup" class="block text-gray-700 font-semibold mb-2">δξωτθ ωξεαιμ μαγιηδ</label>
-                <input type="text" id="jokeSetup" name="jokeSetup" placeholder="ΰικ χεψΰιν μ..." required class="input-field">
+                <label for="jokeSetup" class="block text-gray-700 font-semibold mb-2">Χ”ΧΧ©Χ¤Χ Χ©ΧΧ•Χ‘Χ™Χ ΧΧ‘Χ“Χ™Χ—Χ”</label>
+                <input type="text" id="jokeSetup" name="jokeSetup" placeholder="ΧΧ™Χ Χ§Χ•Χ¨ΧΧ™Χ Χ..." required class="input-field">
             </div>
 
             <button type="submit" id="submitBtn" class="submit-button">
-                ωμη ΰϊ δαγιηδ δχψω!
+                Χ©ΧΧ— ΧΧª Χ”Χ‘Χ“Χ™Χ—Χ” Χ”Χ§Χ¨Χ©!
             </button>
         </form>
 
         <div id="successMessage" class="success-message mt-6 hidden">
-            δθετρ πωμη αδφμηδ! ϊεγδ ψαδ ςμ δαγιηδ!
+            Χ”ΧΧ•Χ¤Χ΅ Χ Χ©ΧΧ— Χ‘Χ”Χ¦ΧΧ—Χ”! ΧªΧ•Χ“Χ” Χ¨Χ‘Χ” ΧΆΧ Χ”Χ‘Χ“Χ™Χ—Χ”!
         </div>
     </div>
 
     <script>
         document.getElementById('jokeForm').addEventListener('submit', async function(event) {
-            // ξεπς ΰϊ ωμιηϊ δθετρ αγψκ δψβιμδ
+            // ΧΧ•Χ ΧΆ ΧΧª Χ©ΧΧ™Χ—Χª Χ”ΧΧ•Χ¤Χ΅ Χ‘Χ“Χ¨Χ Χ”Χ¨Χ’Χ™ΧΧ”
             event.preventDefault();
 
             const form = event.target;
             const button = document.getElementById('submitBtn');
             const successMessage = document.getElementById('successMessage');
 
-            // δρϊψϊ δδεγςδ δχεγξϊ
+            // Χ”Χ΅ΧªΧ¨Χª Χ”Χ”Χ•Χ“ΧΆΧ” Χ”Χ§Χ•Χ“ΧΧª
             successMessage.classList.add('hidden');
 
-            // ωιπει δθχρθ εδρθθερ ωμ δλτϊεψ
-            button.innerText = 'ωεμη...';
+            // Χ©Χ™Χ Χ•Χ™ Χ”ΧΧ§Χ΅Χ Χ•Χ”Χ΅ΧΧΧ•Χ΅ Χ©Χ Χ”Χ›Χ¤ΧªΧ•Χ¨
+            button.innerText = 'Χ©Χ•ΧΧ—...';
             button.disabled = true;
 
-            // ιφιψϊ ΰεαιιχθ ςν πϊεπι δθετρ
+            // Χ™Χ¦Χ™Χ¨Χª ΧΧ•Χ‘Χ™Χ™Χ§Χ ΧΆΧ Χ ΧªΧ•Χ Χ™ Χ”ΧΧ•Χ¤Χ΅
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
             try {
-                // ωμιηϊ δπϊεπιν μ-Webhook αΰξφςεϊ Fetch
+                // Χ©ΧΧ™Χ—Χª Χ”Χ ΧªΧ•Χ Χ™Χ Χ-Webhook Χ‘ΧΧΧ¦ΧΆΧ•Χª Fetch
                 const response = await fetch(form.action, {
                     method: 'POST',
                     headers: {
@@ -125,21 +125,21 @@
                 });
 
                 if (response.ok) {
-                    // δφβϊ δεγςϊ δφμηδ ΰν δϊωεαδ ϊχιπδ
+                    // Χ”Χ¦Χ’Χª Χ”Χ•Χ“ΧΆΧª Χ”Χ¦ΧΧ—Χ” ΧΧ Χ”ΧªΧ©Χ•Χ‘Χ” ΧªΧ§Χ™Χ Χ”
                     successMessage.classList.remove('hidden');
-                    form.reset(); // ΰιτερ δθετρ
+                    form.reset(); // ΧΧ™Χ¤Χ•Χ΅ Χ”ΧΧ•Χ¤Χ΅
                 } else {
-                    // θιτεμ αωβιΰεϊ ξδφγ ωμ δωψϊ
+                    // ΧΧ™Χ¤Χ•Χ Χ‘Χ©Χ’Χ™ΧΧ•Χª ΧΧ”Χ¦Χ“ Χ©Χ Χ”Χ©Χ¨Χª
                     console.error('Error:', response.statusText);
-                    alert('ΰιψςδ ωβιΰδ αωμιηϊ δθετρ. ΰπΰ πρε ωεα.');
+                    alert('ΧΧ™Χ¨ΧΆΧ” Χ©Χ’Χ™ΧΧ” Χ‘Χ©ΧΧ™Χ—Χª Χ”ΧΧ•Χ¤Χ΅. ΧΧ Χ Χ Χ΅Χ• Χ©Χ•Χ‘.');
                 }
             } catch (error) {
-                // θιτεμ αωβιΰεϊ ψωϊ
+                // ΧΧ™Χ¤Χ•Χ Χ‘Χ©Χ’Χ™ΧΧ•Χª Χ¨Χ©Χª
                 console.error('Network Error:', error);
-                alert('ΰιψςδ ωβιΰδ αωμιηϊ δθετρ. ΰπΰ πρε ωεα.');
+                alert('ΧΧ™Χ¨ΧΆΧ” Χ©Χ’Χ™ΧΧ” Χ‘Χ©ΧΧ™Χ—Χª Χ”ΧΧ•Χ¤Χ΅. ΧΧ Χ Χ Χ΅Χ• Χ©Χ•Χ‘.');
             } finally {
-                // ΰιτερ δλτϊεψ αριεν δϊδμικ
-                button.innerText = 'ωμη ΰϊ δαγιηδ δχψω!';
+                // ΧΧ™Χ¤Χ•Χ΅ Χ”Χ›Χ¤ΧªΧ•Χ¨ Χ‘Χ΅Χ™Χ•Χ Χ”ΧªΧ”ΧΧ™Χ
+                button.innerText = 'Χ©ΧΧ— ΧΧª Χ”Χ‘Χ“Χ™Χ—Χ” Χ”Χ§Χ¨Χ©!';
                 button.disabled = false;
             }
         });
