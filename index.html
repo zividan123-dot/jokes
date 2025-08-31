@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טופס יצירת בדיחות קרש</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Heebo', sans-serif;
+            direction: rtl;
+            background-color: #f0f4f8;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            max-width: 28rem;
+            margin: 2rem auto;
+        }
+        .input-field {
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .input-field:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px #bfdbfe;
+        }
+        .submit-button {
+            border-radius: 0.5rem;
+            background-color: #2563eb;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            width: 100%;
+            transition: background-color 0.2s, transform 0.1s;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+        .submit-button:active {
+            transform: translateY(1px);
+        }
+        .success-message {
+            background-color: #d1fae5;
+            color: #065f46;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="form-container">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">טופס בדיחות קרש</h1>
+        <p class="text-gray-500 text-center mb-8">
+            מלאו את הפרטים והבדיחה הקרש שלכם תגיע ישר ל-Webhook!
+        </p>
+
+        <form id="jokeForm" action="https://hook.eu2.make.com/n1l103qshtres56kkc8slnip78vllun6" method="post">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-semibold mb-2">שם</label>
+                <input type="text" id="name" name="name" placeholder="השם שלכם" required class="input-field">
+            </div>
+
+            <div class="mb-4">
+                <label for="topic" class="block text-gray-700 font-semibold mb-2">נושא הבדיחה</label>
+                <input type="text" id="topic" name="topic" placeholder="לדוגמה: מחשבים, אוכל, בעלי חיים" required class="input-field">
+            </div>
+
+            <div class="mb-6">
+                <label for="jokeSetup" class="block text-gray-700 font-semibold mb-2">המשפט שמוביל לבדיחה</label>
+                <input type="text" id="jokeSetup" name="jokeSetup" placeholder="איך קוראים ל..." required class="input-field">
+            </div>
+
+            <button type="submit" id="submitBtn" class="submit-button">
+                שלח את הבדיחה הקרש!
+            </button>
+        </form>
+
+        <div id="successMessage" class="success-message mt-6 hidden">
+            הטופס נשלח בהצלחה! תודה רבה על הבדיחה!
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('jokeForm').addEventListener('submit', async function(event) {
+            // מונע את שליחת הטופס בדרך הרגילה
+            event.preventDefault();
+
+            const form = event.target;
+            const button = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+
+            // הסתרת ההודעה הקודמת
+            successMessage.classList.add('hidden');
+
+            // שינוי הטקסט והסטטוס של הכפתור
+            button.innerText = 'שולח...';
+            button.disabled = true;
+
+            // יצירת אובייקט עם נתוני הטופס
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // שליחת הנתונים ל-Webhook באמצעות Fetch
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    // הצגת הודעת הצלחה אם התשובה תקינה
+                    successMessage.classList.remove('hidden');
+                    form.reset(); // איפוס הטופס
+                } else {
+                    // טיפול בשגיאות מהצד של השרת
+                    console.error('Error:', response.statusText);
+                    alert('אירעה שגיאה בשליחת הטופס. אנא נסו שוב.');
+                }
+            } catch (error) {
+                // טיפול בשגיאות רשת
+                console.error('Network Error:', error);
+                alert('אירעה שגיאה בשליחת הטופס. אנא נסו שוב.');
+            } finally {
+                // איפוס הכפתור בסיום התהליך
+                button.innerText = 'שלח את הבדיחה הקרש!';
+                button.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
